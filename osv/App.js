@@ -5,7 +5,8 @@ var BaseHandler = require("./PageHandlers/BaseHandler"),
     JVMHandler = require("./PageHandlers/Dashboard/JVM"),
     CassandraHandler = require("./PageHandlers/Dashboard/Cassandra"),
     TomcatHandler = require("./PageHandlers/Dashboard/Tomcat"),
-    SwaggerHandler = require("./PageHandlers/Swagger");
+    SwaggerHandler = require("./PageHandlers/Swagger"),
+    ClickHandler = require("./PageHandlers/Dashboard/Click");
 
 
 module.exports = Davis(function() {
@@ -20,7 +21,8 @@ module.exports = Davis(function() {
     cassandraHandler = new CassandraHandler(),
     tomcatHandler = new TomcatHandler(),
     runRoute = new CustomEvent('runRoute'),
-    swaggerHandler = new SwaggerHandler();
+    swaggerHandler = new SwaggerHandler(),
+    clickHandler = new ClickHandler();
 
   this.configure(function() {
     this.generateRequestOnPageLoad = true;
@@ -58,6 +60,10 @@ module.exports = Davis(function() {
 
     self.get(basePath + "/swagger/", function() {
       swaggerHandler.handler();
+    });
+
+    self.get(basePath + "/click/", function() {
+      clickHandler.handler();
     });
 
   })

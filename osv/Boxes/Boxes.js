@@ -14,5 +14,8 @@ module.exports = {
 	ThreadsTableBox: require("./ThreadsTableBox"),
 	ThreadsTimeline: require("./ThreadsTimeline"),
 	TraceList: require("./TraceList"),
-	TracePoints: require("./TracePoints")
+	TracePoints: require("./TracePoints"),
+	ClickInfoBox: require("./ClickInfoBox"),
+	ClickGraphBox: require("./ClickGraphBox"),
+	ClickEditorBox: require("./ClickEditorBox")
 }
