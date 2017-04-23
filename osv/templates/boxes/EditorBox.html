@@ -1,14 +1,21 @@
-<div class="roundedContainer editorBox col-xs-12">
-	<div class="row graph_header">
-	    <div class="col-xs-12">
-	        <h4>{{ title }}</h4>
-	    </div>
+<div>
+<div class="roundedContainer smallGraph col-lg-6">
+	<div class="row graph_header col-xs-12">
+		<h4>{{title}}</h4>
 	</div>
-	<div class="row" style="margin:10px; height:65%;">
-		<textarea style="height:100%; width:100%; resize: none;" name="clickFunction"></textarea>
-	</div>
-	<div class="row" style="margin: 10px;">
-    <button type="button" class="btn btn-default confUpdate">Update Config</button>
-    <button type="button" class="btn btn-default clear">Clean</button>
+    <div class="row" style="margin:10px; height:70%;">
+		<textarea style="height:100%; width:100%; resize: none;" id="clickFunction">{{funcNow}}</textarea>
     </div>
+    <br>
+    <div class="row" style="margin: 10px;">
+    <button type="button" class="btn btn-default confUpdate">Update NF</button>
+    <button type="button" class="btn btn-default confClean">Clean NF</button>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default uploadNF">Upload New NF</button>
+        <label class="btn btn-primary">
+            Select File<input id="newFunction" type="file" style="display: none;">
+        </label>
+    </div>
+    </div>
+</div>
 </div>

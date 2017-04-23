@@ -1,14 +1,11 @@
 var GraphBox = require("./GraphBox"),
-    OS = require("../API/OS"),
-    Settings = require("../Settings");
+    ClickMetrics = require("../API/Applications/Click/ClickMetrics");
 
 function ClickGraphBox() {
   GraphBox.call(this, arguments)
 }
 
 ClickGraphBox.prototype = Object.create(GraphBox.prototype);
-
-ClickGraphBox.prototype.graphs = [];
 
 ClickGraphBox.prototype.title = "Statistics";
 
@@ -31,36 +28,38 @@ ClickGraphBox.prototype.extraSettings = function() {
         tickOptions: {
           formatString: "%H:%M:%S"
         }
+      },
+      yaxis: {
+        min: 0,
+        max: 100
       }
     },
-  series: [{
-      label: "CPU Usage %"
-    },
-    {
-      label: "Disk Usage %"
-    },
-    {
-      label: "Memory Usage %"
-    },
-    {
-      label: "Net TX Usage %"
-    },
-    {
-      label: "Net RX Usage %"
-    }]
-  }
+    series: [
+      {
+        label: "CPU Usage %",
+      },
+
+      {
+        label: "Disk Usage %"
+      },
+
+      {
+        label: "Memory Usage %"
+      },
+      {
+        label: "Net TX %"
+      },
+      {
+        label: "Net RX %"
+      }
+    ],
+  }
 };
 
 ClickGraphBox.prototype.fetchData = function() {
-  var cpuData = OS.CPUAverage();
-  var plots = cpuData.slice(-1 * Settings.Graph.MaxTicks )
-  console.log(cpuData);
-  console.log(plots);
-  
-  if (plots.length == 0) {
-    plots = [ null ];
-  }
-  return $.Deferred().resolve([plots]);
+  var data = ClickMetrics.getData();
+  return $.Deferred().resolve(data);
+    
 };
 
 module.exports = ClickGraphBox;

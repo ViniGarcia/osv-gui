@@ -19,6 +19,7 @@ ClickInfoBox.prototype.refresh = function () {
   var container = $(this.selector);
   this.fetchData().then(function (data) {
     data.forEach(function (obj) {
+      //console.log(obj);
       container.find("[data-key='"+obj.key+"']").html(obj.value);
     })
   });
@@ -43,10 +44,7 @@ ClickInfoBox.prototype.nfStop = function() {
 
 ClickInfoBox.prototype.getData = function() {
   return $.when(
-    OS.getHostname(),
-    Click.version(),
-    OS.Memory.free(),
-    OS.uptime(),
+    Click.vnfIdentification(),
     Click.running()
   );
 };
@@ -81,12 +79,12 @@ ClickInfoBox.prototype.parseNFstatus = function(status) {
   return "Error";
 };
 
-ClickInfoBox.prototype.parseData = function(hostname, driverVersion, freeMemory, uptime, nfStatus) {
+ClickInfoBox.prototype.parseData = function(vnfID, nfStatus) {
   return [
-    { key: "Hostname", value: hostname },
-    { key: "Driver Version", value: driverVersion },
-    { key: "Memory Free", value: helpers.humanReadableByteSize(freeMemory) },
-    { key: "Uptime", value: this.formatUptime(uptime * 1000) },
+    { key: "Name", value: vnfID.name },
+    { key: "Provider", value: vnfID.provider },
+    { key: "Description", value: vnfID.description },
+    { key: "Version", value: vnfID.version },
     { key: "NF Status", value: this.parseNFstatus(nfStatus) }
   ];
 };

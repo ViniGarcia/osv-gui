@@ -116,6 +116,7 @@ BatchRequests.prototype.post = function (path, data) {
   data = "?" + $.map(data, function (value, key) {   
     return key + "=" + value;    
   }).join("&")   
+  console.log(path + data);
   return this.ajax("POST", path + data);   
 };   
  

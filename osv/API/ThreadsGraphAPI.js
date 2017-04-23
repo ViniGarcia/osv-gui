@@ -98,6 +98,7 @@ ThreadsGraphAPI.prototype.formatResponse = function (threads) {
 };
 
 ThreadsGraphAPI.prototype.getThreads = function() {
+  console.log(this.threads);
   return this.threads;
 };
 

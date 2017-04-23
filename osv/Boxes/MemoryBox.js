@@ -60,11 +60,12 @@ MemoryBox.prototype.getSideText = function () {
 
 MemoryBox.prototype.fetchData = function() {
   var MemoryHistory = OS.Memory.History,
-    free = MemoryHistory.free(),
-    total = MemoryHistory.total();
+  free = MemoryHistory.free(),
+  total = MemoryHistory.total();
 
   this.total = total[ total.length - 1][1];
   this.free = free[ free.length - 1][1];
+
   // If there was no data fetched yet, the graph will break the whole application.
   // this is a workaround.
   if (free.length === 0) {

@@ -17,5 +17,6 @@ module.exports = {
 	TracePoints: require("./TracePoints"),
 	ClickInfoBox: require("./ClickInfoBox"),
 	ClickGraphBox: require("./ClickGraphBox"),
-	ClickEditorBox: require("./ClickEditorBox")
+	ClickEditorBox: require("./ClickEditorBox"),
+	LogAndUploadBox: require("./LogAndUploadBox")
 }

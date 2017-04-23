@@ -68,6 +68,8 @@ ThreadsGraph.prototype.normalizeData = function(data) {
 
 ThreadsGraph.prototype.fetchData = function() {
   var self = this;
+  console.log(OS.threadsGraph());
+
   return OS.threadsGraph().then(function(threadsData) {
     return self.normalizeData(threadsData);
   });

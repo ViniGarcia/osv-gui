@@ -111,6 +111,8 @@ apiGETCall = function(path) {
 
 apiPOSTCall = function(path) {
   return function(data) {
+    console.log(path);
+    console.log(data);
     return BatchRequests.post(path, data);
   };
 }

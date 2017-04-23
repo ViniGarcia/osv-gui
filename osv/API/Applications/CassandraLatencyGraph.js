@@ -37,7 +37,8 @@ CassandraLatencyGraph.prototype.getData = function() {
     this.safePlot(this.read),
     this.safePlot(this.write)
   ]
-}
+};
+
 CassandraLatencyGraph.prototype.startPulling = function () {
   this.interval = setInterval(this.pullData.bind(this), Settings.DataFetchingRate);
 };

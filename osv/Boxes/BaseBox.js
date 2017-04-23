@@ -28,6 +28,8 @@ BaseBox.prototype.getHtml = function() {
   var template = this.getTemplate();
 
   return this.fetchData().then(function(data) {
+    //console.log(data);
+    //console.log(template(data));
     return template(data);
   });
 };
