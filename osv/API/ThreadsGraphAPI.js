@@ -29,15 +29,17 @@ ThreadsGraphAPI.prototype.formatResponse = function (threads) {
     newTimems = threads.time_ms,
     diff = {},
     idles = {};
-
+  //For each thread on list
   threads.list.forEach(function (thread) {
     
     self.names[ thread.id ] = thread.name; 
     self.statuses[ thread.id ] = thread.status;
+    //Calcula a diferença entre o tempo de cpu anterior e o atual, e salva em diff{}
     if (self.timems) {
       diff[ thread.id ] = thread.cpu_ms - self.prevTime[ thread.id ];
     }
     
+    //Seta o tempo anterior da thread como o atual, para a próxima iteração.
     self.prevTime[ thread.id ] = thread.cpu_ms;  
 
     if ( thread.name.indexOf("idle") != -1 && self.timems) {

@@ -19,7 +19,6 @@ ClickEditorBox.prototype.title = "Editor - NF Uploader";
 ClickEditorBox.prototype.refresh = function () {
   var container =$(this.selector),
     template = this.getTemplate();
- 
  this.fetchData().then(function(data) {
   	var context = { title: ClickEditorBox.prototype.title, funcNow : data };
     container.html(template(context));
@@ -27,7 +26,7 @@ ClickEditorBox.prototype.refresh = function () {
 };
 
 ClickEditorBox.prototype.fetchData = function() {
-	console.log("Read File");
+	//console.log("Read File");
 	return $.when(
 		Click.readFile()
 		)
@@ -35,7 +34,7 @@ ClickEditorBox.prototype.fetchData = function() {
 
 ClickEditorBox.prototype.getHtml = function() {
   var template = this.getTemplate();
-  console.log("Get Template");
+  //console.log("Get Template");
   return this.fetchData().then(function(data) {
   	var context = { title: ClickEditorBox.prototype.title, funcNow : data };
     console.log(context);

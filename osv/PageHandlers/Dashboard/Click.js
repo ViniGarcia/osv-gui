@@ -52,6 +52,7 @@ function Click() {
       xhr.send(form);
       alert("New function uploaded");
       self.refreshEditor();
+      self.nfStop();
     }
     else{
       alert("No files selected");
@@ -61,6 +62,7 @@ function Click() {
 
   $(document).on("click", ".confClean", function(){
     if(confirm("This will erase your function. Proceed?")){
+      self.nfStop();
       var blob = new Blob([ "" ], {type:'text/plain'});
       var xhr = new XMLHttpRequest();
       var form = new FormData();
