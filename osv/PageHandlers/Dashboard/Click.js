@@ -20,6 +20,7 @@ function Click() {
 
   $(document).on("click", ".shutdownVM", function () {
     console.log("Shutdown VM press");
+    self.nfStop();
     self.shutdownVM();
   });
 
@@ -28,8 +29,8 @@ function Click() {
   */
 
   $(document).on("click", ".confUpdate", function(){
+    self.nfStop();
     var content = $('#clickFunction');
-    //console.log(content.value());
     var blob = new Blob([ content.val() ], {type:'text/plain'});
     var xhr = new XMLHttpRequest();
     var form = new FormData();
@@ -39,6 +40,11 @@ function Click() {
     xhr.send(form);
     alert("Function updated")
     self.refreshEditor();
+    self.nfStart();
+  });
+
+  $(document).on("click", ".rebootVM", function (){
+    self.rebootVM();
   });
 
   $(document).on("click", ".uploadNF", function(){
@@ -91,6 +97,11 @@ Click.prototype.shutdownVM = function() {
   console.log("shutdownVM exec");
   this.clickInfoBox.vmShutdown();
 };
+
+Click.prototype.rebootVM = function(){
+  console.log("rebootVM exec");
+  this.clickInfoBox.vmReboot();
+}
 
 Click.prototype.nfStart = function() {
   console.log("nfStart exec");

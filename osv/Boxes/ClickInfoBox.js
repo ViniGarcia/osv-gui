@@ -34,6 +34,10 @@ ClickInfoBox.prototype.vmShutdown = function() {
   OS.shutdown(1);
 };
 
+ClickInfoBox.prototype.vmReboot = function() {
+  OS.reboot(1);
+}
+
 ClickInfoBox.prototype.nfStart = function() {
   Click.start(1);
 };

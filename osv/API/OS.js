@@ -21,6 +21,7 @@ module.exports = {
       free: freeMemoryGraph.getData.bind(freeMemoryGraph)
     }
   },
+  reboot: apiPOSTCall("/os/reboot"),
   shutdown: apiPOSTCall("/os/shutdown"),
   dmesg: apiGETCall("/os/dmesg"),
   getHostname: apiGETCall("/os/hostname"),
