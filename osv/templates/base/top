@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>OSv : vm23_39382ds</title>
+    <title>Click-on-OSv: vmTest01-20170428</title>
     <link href="/dashboard_static/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
     <link href="/dashboard_static/library/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/dashboard_static/styles/style.css" rel="stylesheet">
@@ -21,7 +21,7 @@
 <div class="osv_header">
     <div class="logo" >
         <a href="/"><img src="/dashboard_static/images/logo_osv.png"></a>
-        <a style="position: absolute; left: 73px;" href="http://cloudius-systems.com/"><img src="/dashboard_static/images/logo_cloudius.png"></a>
+        <a style="position: absolute; left: 145px;" href="http://cloudius-systems.com/"><img src="/dashboard_static/images/logo_cloudius.png"></a>
     </div>
     <div class="vmname" data-hostname></div>
     <div data-global-pause class="system_run_icon"></div>

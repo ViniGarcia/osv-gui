@@ -21,6 +21,7 @@
       window.swaggerUi = new SwaggerUi({
       url: window.parent.Settings.BasePath + "/api-doc",
       dom_id: "swagger-ui-container",
+      apisSorter : "alpha",
       supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
       onComplete: function(swaggerApi, swaggerUi){
         if(console) {

@@ -20,14 +20,15 @@ LogAndUploadBox.prototype.title = "Log";
 LogAndUploadBox.prototype.refresh = function () {
   var container =$(this.selector),
     template = this.getTemplate();
-    var scroll = container.find("textarea").prop('scrollHeight');
-    container.find("textarea").prop('scrollTop',scroll);
     var text = container.find("textarea").val();
  this.fetchData().then(function(data) {
   if(text != data){
     //console.log("Refreshing Log");
-    var context = { title: LogAndUploadBox.prototype.title, logText : data};
-    container.html(template(context));
+    //var context = { title: LogAndUploadBox.prototype.title, logText : data};
+    var scroll = container.find("textarea").prop('scrollHeight');
+    container.find("textarea").prop('scrollTop',scroll);
+    container.find("textarea").html(data);
+    //container.html(template(context));
   };
   });
 };
