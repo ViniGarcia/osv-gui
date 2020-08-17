@@ -89,7 +89,8 @@ ClickInfoBox.prototype.parseData = function(vnfID, nfStatus) {
     { key: "Provider", value: vnfID.provider },
     { key: "Description", value: vnfID.description },
     { key: "Version", value: vnfID.version },
-    { key: "NF Status", value: this.parseNFstatus(nfStatus) }
+    { key: "NF Status", value: this.parseNFstatus(nfStatus) },
+    { key: "Framework", value: vnfID.framework }
   ];
 };
 
